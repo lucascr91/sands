@@ -15,16 +15,17 @@ int main() {
 
     // exchange(5,0,test);
 
-    selection_sort(test);
+    // selection_sort(test);
 
     // std::iter_swap(test.begin()+1, test.begin()+2);
 
-    // std::string sep = "\n";
+    std::string sep = "\n";
 
     // print_vector(test, sep);
     // insertion_sort(test);
+    merge_sort(test);
 
-    // print_vector(test);
+    print_vector(test, sep);
 
     // std::vector<int> result = cut_vector(test, 0);
 
