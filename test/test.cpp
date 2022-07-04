@@ -26,6 +26,12 @@ bool test_merge_sort(std::vector<int> test_vector, std::vector<int> result) {
     return test_vector==result;
 }
 
+bool test_quick_sort(std::vector<int> test_vector, std::vector<int> result) {
+    quick_sort(test_vector);
+    
+    return test_vector==result;
+}
+
 #define IS_TRUE(x) { if (!(x)) std::cout << __FUNCTION__ << " failed on line " << __LINE__ << std::endl; }
 
 void test() {
@@ -38,6 +44,8 @@ void test() {
     IS_TRUE(test_shell_sort(test_vector, result));
     test_vector = {13,54,6,8,2,4,2,1,57};
     IS_TRUE(test_merge_sort(test_vector, result));
+    test_vector = {13,54,6,8,2,4,2,1,57};
+    IS_TRUE(test_quick_sort(test_vector, result));
 }
 
 int main(void) {

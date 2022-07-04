@@ -8,6 +8,8 @@ bool compare(int a, int b);
 std::vector<int> cut_vector(std::vector<int> numbers, int start);
 void print_vector(std::vector<int> numbers, std::string sep);
 int get_minimum(std::vector<int> values, int start);
+int partition(std::vector<int> numbers, int first, int last);
+void quick_sort_helper(std::vector<int>& numbers, int first, int last);
 
 void selection_sort(std::vector<int>& numbers) {
     int i = 0;
@@ -95,4 +97,9 @@ void merge_sort(std::vector<int>& numbers) {
             k++;
         }
     }
+}
+
+void quick_sort(std::vector<int>& numbers) {
+    int upper_limit = numbers.size()-1;
+    quick_sort_helper(numbers, 0, upper_limit);
 }

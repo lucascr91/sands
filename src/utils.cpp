@@ -37,3 +37,44 @@ int get_minimum(std::vector<int> values, int start) {
 
     return minimum;
 }
+
+int partition(std::vector<int>& numbers, int first, int last) {
+    int pivot_value = numbers[first];
+    int temp;
+
+    int leftmark = first+1;
+    int rightmark = last;
+
+    bool done = false;
+
+    while (!done) {
+        while (leftmark<= rightmark && numbers[leftmark]<= pivot_value) {
+            leftmark = leftmark+1;
+        }
+        while (numbers[rightmark]>= pivot_value && rightmark>= leftmark) {
+            rightmark = rightmark-1;
+        }
+
+        if (rightmark<leftmark) {
+            done=true;
+        } else {
+            temp = numbers[leftmark];
+            numbers[leftmark] = numbers[rightmark];
+            numbers[rightmark] = temp;
+        }
+    }
+    temp = numbers[first];
+    numbers[first] = numbers[rightmark];
+    numbers[rightmark] = temp;
+
+    return rightmark;
+}
+
+void quick_sort_helper(std::vector<int>& numbers, int first, int last) {
+    if (first<last) {
+        int splitpoint = partition(numbers, first, last);
+
+        quick_sort_helper(numbers, first, splitpoint-1);
+        quick_sort_helper(numbers, splitpoint+1, last);
+    }
+}
